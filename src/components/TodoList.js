@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Item from './TodoItem';
+// import Item from './TodoItem';
 import TodoItem from './TodoItem';
 export default class TodoList extends Component {
   render() {
@@ -17,7 +17,13 @@ export default class TodoList extends Component {
             />
           );
         })}
-        <button type="button" className="btn btn-danger btn-block text-uppercase mt-5" onClick={clearList} >Clear list</button>
+        <button
+          type="button"
+          className="btn btn-danger btn-block text-uppercase mt-5"
+          onClick={clearList}
+        >
+          Clear list
+        </button>
       </ul>
     );
   }

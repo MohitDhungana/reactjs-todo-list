@@ -17,6 +17,7 @@ class App extends Component {
       item: e.target.value
     });
   };
+
   handleSubmit = e => {
     e.preventDefault();
     const newItem = {
@@ -31,15 +32,32 @@ class App extends Component {
       editItem: false
     });
   };
+
   clearList = () => {
-    console.log('Clear list method');
+    this.setState({
+      items: []
+    });
   };
+
   handleEdit = id => {
-    console.log('handle edit');
+    const filteredItems = this.state.items.filter(item => item.id !== id);
+    const selectedItem = this.state.items.find(item => item.id === id);
+    this.setState({
+      items: filteredItems,
+      item: selectedItem.title,
+      id: id,
+      editItem: true
+    });
+    // console.log(selectedItem);
   };
+
   handleDelete = id => {
-    console.log('handle delete');
+    const filteredItems = this.state.items.filter(item => item.id !== id);
+    this.setState({
+      items: filteredItems
+    });
   };
+
   render() {
     // console.log(this.state);
     return (
